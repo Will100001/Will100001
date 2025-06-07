@@ -1,0 +1,12 @@
+import gspread
+
+# Autentikasi Google Sheets
+gc = gspread.service_account(filename="credentials.json")
+sheet = gc.open("Data Bot").sheet1
+
+# Simpan data
+def save_to_sheet(text, response):
+    sheet.append_row([text, response, bot.mood])
+
+# Contoh penggunaan
+save_to_sheet("Pesan user", "Bot response")
